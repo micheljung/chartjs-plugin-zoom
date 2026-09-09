@@ -220,7 +220,7 @@ describe('pan', function () {
         },
       })
 
-      Simulator.gestures.pan(chart.canvas, { deltaX: -350, deltaY: 0, duration: 50 }, function () {
+      jasmine.simulatePan(chart, { deltaX: -350, deltaY: 0 }, function () {
         expect(startSpy).toHaveBeenCalled()
         expect(chart.scales.x.min).not.toBe(1)
         done()
@@ -246,7 +246,7 @@ describe('pan', function () {
         },
       })
 
-      Simulator.gestures.pan(chart.canvas, { deltaX: -350, deltaY: 0, duration: 50 }, function () {
+      jasmine.simulatePan(chart, { deltaX: -350, deltaY: 0 }, function () {
         expect(rejectSpy).toHaveBeenCalled()
         expect(chart.scales.x.min).toBe(1)
         done()
@@ -272,7 +272,7 @@ describe('pan', function () {
           },
         },
       })
-      Simulator.gestures.pan(chart.canvas, { deltaX: -350, deltaY: 0, duration: 50 })
+      jasmine.simulatePan(chart, { deltaX: -350, deltaY: 0 })
     })
   })
 })

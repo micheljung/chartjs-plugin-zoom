@@ -41,7 +41,7 @@ describe('pinch', () => {
         },
       })
 
-      Simulator.gestures.pinch(chart.canvas, { pos: [chart.width / 2, chart.height / 2] }, function () {
+      jasmine.simulatePinch(chart, { pos: [chart.width / 2, chart.height / 2] }, function () {
         expect(startSpy).toHaveBeenCalled()
         expect(chart.scales.x.min).not.toBe(1)
         done()
@@ -69,7 +69,7 @@ describe('pinch', () => {
         },
       })
 
-      Simulator.gestures.pinch(chart.canvas, {}, function () {
+      jasmine.simulatePinch(chart, {}, function () {
         expect(rejectSpy).toHaveBeenCalled()
         expect(chart.scales.x.min).toBe(1)
         done()
@@ -97,7 +97,7 @@ describe('pinch', () => {
           },
         },
       })
-      Simulator.gestures.pinch(chart.canvas, {})
+      jasmine.simulatePinch(chart, {})
     })
   })
 })
